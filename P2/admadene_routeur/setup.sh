@@ -3,8 +3,9 @@
 if [ $# -ne 1 ]
 then
     echo "Usage: ./script.sh id"
-else
-ip link add br0 type bridge
+    exit
+fi
+    ip link add br0 type bridge
 ip link set dev br0 up
 
 
@@ -17,5 +18,4 @@ brctl addif br0 vxlan10
 
 ip link set dev vxlan10 up
 
-fi
 
